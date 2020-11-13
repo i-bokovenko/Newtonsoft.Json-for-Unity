@@ -1,5 +1,9 @@
 # Newtonsoft.Json for Unity changelog
 
+## 12.0.302
+
+removed support for BigInteger
+
 ## 12.0.301
 
 - ✨ New: Merged changes from
