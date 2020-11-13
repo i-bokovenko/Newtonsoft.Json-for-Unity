@@ -465,7 +465,7 @@ workflows:
               <<: *WORKFLOW_BUILD_TEST_DEPLOY_FILTER
       - check-deploy-ready:
           requires:
-            - test-windows
+            - build-package
       - deploy-github:
           requires:
             - check-deploy-ready
