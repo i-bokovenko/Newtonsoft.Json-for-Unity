@@ -469,9 +469,6 @@ workflows:
       - check-deploy-ready:
           requires:
             - test-windows
-      - deploy-cloudsmith:
-          requires:
-            - check-deploy-ready
       - deploy-github:
           requires:
             - check-deploy-ready
