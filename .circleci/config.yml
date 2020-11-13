@@ -451,12 +451,6 @@ workflows:
       - test-windows:
           requires:
             - build-package
-      - test-unity-2018-4-14f1:
-          requires:
-            - build-package
-      - test-unity-2019-2-11f1:
-          requires:
-            - build-package
   check-deploy-ready:
     jobs:
       - check-deploy-ready:
@@ -472,17 +466,9 @@ workflows:
       - test-windows:
           requires:
             - build-package
-      - test-unity-2018-4-14f1:
-          requires:
-            - build-package
-      - test-unity-2019-2-11f1:
-          requires:
-            - build-package
       - check-deploy-ready:
           requires:
             - test-windows
-            - test-unity-2018-4-14f1
-            - test-unity-2019-2-11f1
       - deploy-cloudsmith:
           requires:
             - check-deploy-ready
