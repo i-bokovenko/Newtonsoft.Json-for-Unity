@@ -14,8 +14,9 @@ set -o pipefail
 : ${GITHUB_SSH_SEC_B64:-}
 
 # Load GPG keys
-GITHUB_GPG_SEC=$(base64 -di - <<< "$GITHUB_GPG_SEC_B64")
-gpg --import - <<< "$GITHUB_GPG_SEC"
+base64 -di - <<< "$GITHUB_GPG_SEC_B64" > tmp.key
+gpg --import tmp.key
+rm tmp.key
 
 # Git settings
 git config --global user.name "$GITHUB_USER_NAME"
