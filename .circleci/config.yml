@@ -457,15 +457,12 @@ workflows:
           filters:
             branches:
               <<: *WORKFLOW_CHECK_DEPLOY_READY_FILTER
-  build-test-deploy:
+  build-deploy:
     jobs:
       - build-package:
           filters:
             branches:
               <<: *WORKFLOW_BUILD_TEST_DEPLOY_FILTER
-      - test-windows:
-          requires:
-            - build-package
       - check-deploy-ready:
           requires:
             - test-windows
